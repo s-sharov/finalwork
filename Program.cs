@@ -12,16 +12,20 @@ PrintStringArray(newArray);
 
 string[] CreateStringArray(string[] oldArray)
 {
-    string[] arr = new string[oldArray.Length];
     int count = 0;
+    string[] tmp = new string[oldArray.Length];
     for (int i = 0; i < oldArray.Length; i++)
     {
-        if(oldArray[i].Length <= 3 )
+        if(oldArray[i].Length <= 3 && oldArray[i].Length > 0)
         {
-            arr[count] = oldArray[i];
-            count++;
-        }
+            tmp[count++] = oldArray[i];
+        }    
     }
+    string[] arr = new string[count];
+    for (int i = 0; i < arr.Length; i++)
+    {
+        arr[i] = tmp[i];
+    } 
     return arr;
 }
 
